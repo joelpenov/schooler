@@ -73,39 +73,6 @@
     $('[data-toggle="popover"]').popover()
 
     /*------------- Start form Validation -------------*/
-    window.addEventListener('load', function() {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-
-    /*================================
-    datatable active
-    ==================================*/
-    if ($('#dataTable').length) {
-        $('#dataTable').DataTable({
-            responsive: true
-        });
-    }
-    if ($('#dataTable2').length) {
-        $('#dataTable2').DataTable({
-            responsive: true
-        });
-    }
-    if ($('#dataTable3').length) {
-        $('#dataTable3').DataTable({
-            responsive: true
-        });
-    }
 
 
     /*================================
@@ -135,39 +102,7 @@
         $('.settings-btn').toggleClass('active');
     });
 
-    /*================================
-    Owl Carousel
-    ==================================*/
-    function slider_area() {
-        var owl = $('.testimonial-carousel').owlCarousel({
-            margin: 50,
-            loop: true,
-            autoplay: false,
-            nav: false,
-            dots: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                450: {
-                    items: 1
-                },
-                768: {
-                    items: 2
-                },
-                1000: {
-                    items: 2
-                },
-                1360: {
-                    items: 1
-                },
-                1600: {
-                    items: 2
-                }
-            }
-        });
-    }
-    slider_area();
+
 
     /*================================
     Fullscreen Page
@@ -218,5 +153,7 @@
             $('body').removeClass('expanded');
         });
     }
+
+
 
 })(jQuery);

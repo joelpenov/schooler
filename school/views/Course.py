@@ -5,7 +5,7 @@ from school.serializers.Course import CourseSerializer
 
 
 class CourseList(AtomicMixin, viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = ((permissions.IsAuthenticated),)
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     filter_fields = ('teacher', 'id')
