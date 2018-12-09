@@ -25,7 +25,7 @@ SECRET_KEY = '!v6$%m-lb2dvli-5ak*47e7_d*35045k)#y!j=s54hzjih*6q1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.211.57.250', 'localhost']
+ALLOWED_HOSTS = ['104.211.57.250', 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'school',
+    'rest_framework',
 
 ]
 
@@ -72,6 +73,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'uapaapp.wsgi.application'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
