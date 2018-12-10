@@ -9,3 +9,4 @@ class CourseList(AtomicMixin, viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
     filter_fields = ('teacher', 'id')
+
