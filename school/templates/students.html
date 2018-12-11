@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block maincontent %}
+
+    <div id="students-view">
+
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link collapsed" data-toggle="collapse" href="#accordion23" aria-expanded="false">
+                    Agregar nuevo estudiante</a>
+            </div>
+            <div id="accordion23" class="collapse" data-parent="#accordion2" style="">
+                <div class="card-body">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Nombres</label>
+                                <input data-bind="value: student().name" type="text" class="form-control" id="name"  placeholder="Nombres...">
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Nombres</label>
+                                <input data-bind="value: student().surname" type="text" class="form-control" id="surname"  placeholder="Apellidos...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthdate">Fecha de nacimiento</label>
+                                <input data-bind="value: student().birthDate" type="date" class="form-control" id="birthdate">
+                            </div>
+
+                            <button data-bind="click: addStudent" type="button" class="btn btn-primary mt-4 pr-4 pl-4">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+
+    <div class="col-lg-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Lista de estudiantes</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-info">
+                                                <tr class="text-white">
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellidos</th>
+                                                    <th scope="col">Nacimiento (d/m/a)</th>
+                                                    <th scope="col">Edad</th>
+                                                    <th scope="col">Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach: students">
+                                                <tr>
+                                                    <th data-bind="text: id" scope="row"></th>
+                                                    <th data-bind="text: name"></th>
+                                                    <th data-bind="text: surname"></th>
+                                                    <th data-bind="text:GSAX.formatDate(birthDate())"></th>
+                                                    <th data-bind="text: GSAX.calculateAge(birthDate())"></th>
+                                                    <td><i class="ti-trash"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    </div>
+    </div>
+
+
+{% endblock %}
+{% block javascript %}
+     <script src="{% static "assets/js/app/students.js" %}"></script>
+{% endblock %}

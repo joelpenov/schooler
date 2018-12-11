@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block maincontent %}
-<h1>This is being rendered correctly!</h1>
+    <h1> Bienvenido a Gsax {{ user.first_name }} {{ user.last_name}}!</h1>
 {% endblock %}
-{% block javascript %}
-    <!-- <script src="{% static "app/customers.js" %}"></script> -->
-{% endblock javascript %}

@@ -11,6 +11,7 @@ urlpatterns = [
     url('accounts/', include('django.contrib.auth.urls')),
     url(r'^api/', include(router.urls)),
     url(r'^$', include('main.urls'), name="schooler_home"),
+    url(r'^school/', include('school.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]
