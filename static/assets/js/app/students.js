@@ -23,7 +23,7 @@
         self.students = ko.observableArray([]);
         
         self.loadStudents = function () {
-            GSAX.get("/api/students", function (data) {
+            GSAX.get("/api/students/", function (data) {
                 self.students(data.map(function(student){
                     return new StudentModel().update(student);
                 }));
