@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block maincontent %}
+
+    <div id="teachers-view">
+
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link collapsed" data-toggle="collapse" href="#accordion23" aria-expanded="false">
+                    Agregar nuevo profesor</a>
+            </div>
+            <div id="accordion23" class="collapse" data-parent="#accordion2" style="">
+                <div class="card-body">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Nombres</label>
+                                <input data-bind="value: teacher().name" type="text" class="form-control" id="name"  placeholder="Nombres...">
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Apellidos</label>
+                                <input data-bind="value: teacher().surname" type="text" class="form-control" id="surname"  placeholder="Apellidos...">
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Usuario</label>
+                                <input disabled data-bind="value: username,valueUpdate: 'keypress'" type="text" class="form-control" id="username"  >
+                            </div>
+                            <button data-bind="click: addTeacher" type="button" class="btn btn-primary mt-4 pr-4 pl-4">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+
+    <div class="col-lg-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Lista de profesores</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <thead class="text-uppercase bg-info">
+                                                <tr class="text-white">
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellidos</th>
+                                                    <th scope="col">Usuario</th>
+                                                    <th scope="col">Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-bind="foreach: teachers">
+                                                <tr>
+                                                    <th data-bind="text: id" scope="row"></th>
+                                                    <th data-bind="text: name"></th>
+                                                    <th data-bind="text: surname"></th>
+                                                    <th data-bind="text: username"></th>
+                                                    <td><i class="ti-trash"></i></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    </div>
+    </div>
+
+
+{% endblock %}
+{% block javascript %}
+     <script src="{% static "assets/js/app/teachers.js" %}"></script>
+{% endblock %}
