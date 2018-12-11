@@ -47,7 +47,7 @@
                 birth_date: self.getValidProperty("birthDate", "Fecha", self.student().birthDate())
             }
 
-            if(!data.birth_date || !data.name || !data.birth_date) return;
+            if(!data.surname || !data.name || !data.birth_date) return;
 
             data.birth_date += "T00:00:00"
 
@@ -57,6 +57,7 @@
         self.addStudent = function() {
 
             var data = self.getStudentData();
+             if(!data) return;
             GSAX.post("/api/students/", data, function (response) {
                 self.student().update({});
                 self.loadStudents();

@@ -10,4 +10,5 @@ def register_api_urls(router):
 
 urlpatterns = [
     url(r'^students/', Student.students),
+    url(r'^teachers/', Teacher.teachers),
 ]
